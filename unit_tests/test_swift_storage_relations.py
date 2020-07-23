@@ -67,6 +67,7 @@ TO_PATCH = [
     'setup_ufw',
     'revoke_access',
     'kv',
+    'create_sysctl',
 ]
 
 
