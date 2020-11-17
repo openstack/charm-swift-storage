@@ -108,10 +108,13 @@ class SwiftStorageServerContext(OSContextGenerator):
             'statsd_sample_rate': config('statsd-sample-rate'),
         }
 
-        # ensure lockup_timeout > rsync_timeout. See bug 1575277
+        # Per the behavior listed on LB#1575277, object_lockup_timeout should
+        # be smaller than object_rsync_timeout. But we have hit issues any time
+        # this value is smaller or equal to '2 * object_rsync_timeout', so we
+        # set it to a value a bit bigger than that.
         ctxt['object_lockup_timeout'] = max(
             config('object-lockup-timeout'),
-            2*ctxt['object_rsync_timeout']
+            2*ctxt['object_rsync_timeout'] + 10
         )
 
         if config('node-timeout'):

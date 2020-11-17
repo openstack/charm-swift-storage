@@ -738,10 +738,13 @@ class SwiftStorageUtilsTests(CharmTestCase):
         peer_addr_1 = '10.1.1.1'
         peer_addr_2 = '10.1.1.2'
         client_addrs = ['10.3.3.1', '10.3.3.2', '10.3.3.3', 'ubuntu.com']
-        ports = [6660, 6661, 6662]
+        ports = [6660, 6661, 6662, 6670, 6671, 6672]
         self.test_config.set('object-server-port', ports[0])
         self.test_config.set('container-server-port', ports[1])
         self.test_config.set('account-server-port', ports[2])
+        self.test_config.set('object-server-port-rep', ports[3])
+        self.test_config.set('container-server-port-rep', ports[4])
+        self.test_config.set('account-server-port-rep', ports[5])
         RelatedUnits = namedtuple('RelatedUnits', 'rid, unit')
         self.iter_units_for_relation_name.return_value = [
             RelatedUnits(rid='rid:1', unit='unit/1'),

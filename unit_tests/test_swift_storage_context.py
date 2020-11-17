@@ -88,7 +88,7 @@ class SwiftStorageContextTests(CharmTestCase):
         result = ctxt()
         ex = {
             'object_rsync_timeout': 1000,
-            'object_lockup_timeout': 2000,
+            'object_lockup_timeout': 2010,
         }
         self.assertDictContainsSubset(ex, result)
 

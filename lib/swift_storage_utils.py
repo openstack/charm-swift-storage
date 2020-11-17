@@ -169,12 +169,15 @@ SWIFT_SVCS = (
 
 RESTART_MAP = {
     '/etc/rsync-juju.d/050-swift-storage.conf': ['rsync'],
-    '/etc/swift/account-server.conf': ACCOUNT_SVCS,
-    '/etc/swift/account-server/replicator.conf': ACCOUNT_SVCS_REP,
-    '/etc/swift/container-server.conf': CONTAINER_SVCS,
-    '/etc/swift/container-server/replicator.conf': CONTAINER_SVCS_REP,
-    '/etc/swift/object-server.conf': OBJECT_SVCS,
-    '/etc/swift/object-server/replicator.conf': OBJECT_SVCS_REP,
+    '/etc/swift/account-server.conf': ACCOUNT_SVCS + ACCOUNT_SVCS_REP,
+    '/etc/swift/account-server/account-server-replicator.conf':
+        ACCOUNT_SVCS + ACCOUNT_SVCS_REP,
+    '/etc/swift/container-server.conf': CONTAINER_SVCS + CONTAINER_SVCS_REP,
+    '/etc/swift/container-server/container-server-replicator.conf':
+        CONTAINER_SVCS + CONTAINER_SVCS_REP,
+    '/etc/swift/object-server.conf': OBJECT_SVCS + OBJECT_SVCS_REP,
+    '/etc/swift/object-server/object-server-replicator.conf':
+        OBJECT_SVCS + OBJECT_SVCS_REP,
     '/etc/swift/swift.conf': SWIFT_SVCS
 }
 
@@ -830,7 +833,10 @@ def setup_ufw():
 
     ports = [config('object-server-port'),
              config('container-server-port'),
-             config('account-server-port')]
+             config('account-server-port'),
+             config('object-server-port-rep'),
+             config('container-server-port-rep'),
+             config('account-server-port-rep')]
 
     # Storage peers
     allowed_hosts = RsyncContext()().get('allowed_hosts', '').split(' ')
