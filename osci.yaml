@@ -1,0 +1,22 @@
+- project:
+    templates:
+      - charm-unit-jobs
+    check:
+      jobs:
+      - groovy-victoria
+      - focal-victoria
+      - focal-ussuri
+      - bionic-ussuri
+      - bionic-train
+      - bionic-stein
+      - bionic-queens
+      - xenial-mitaka
+      - bionic-train-gr
+
+- job:
+    name: bionic-train-gr
+    parent: func-target
+    dependencies:
+      - focal-ussuri
+    vars:
+      tox_extra_args: swift_gr_region1:bionic-train-gr-r1 swift_gr_region2:bionic-train-gr-r2
