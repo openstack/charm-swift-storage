@@ -1,6 +1,8 @@
 charm_name: swift-storage
+
 gate_bundles:
   - groovy-victoria
+  - focal-wallaby
   - focal-victoria
   - focal-ussuri
   - bionic-ussuri
@@ -16,13 +18,19 @@ gate_bundles:
   - bionic-train-gr:
     - swift_gr_region1: bionic-train-gr-r1
     - swift_gr_region2: bionic-train-gr-r2
+
 smoke_bundles:
-  - bionic-train
+  - focal-ussuri
+
+dev_bundles:
+  - hirsute-wallaby
+
 tests:
   - zaza.openstack.charm_tests.swift.tests.SwiftImageCreateTest
   - zaza.openstack.charm_tests.swift.tests.SwiftStorageTests
   - swift_gr_region1:
     - zaza.openstack.charm_tests.swift.tests.SwiftGlobalReplicationTests
+
 tests_options:
   force_deploy:
-    - groovy-victoria
+    - hirsute-wallaby
