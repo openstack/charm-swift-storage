@@ -11,10 +11,10 @@
       - bionic-stein
       - bionic-queens
       - xenial-mitaka
-      - bionic-train-gr
+      - bionic-train-gr-swift
 
 - job:
-    name: bionic-train-gr
+    name: bionic-train-gr-swift
     parent: func-target
     dependencies:
       - focal-ussuri
