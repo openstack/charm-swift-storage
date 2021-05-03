@@ -1,7 +1,7 @@
 series: trusty
 applications:
   swift-proxy:
-    charm: cs:~openstack-charmers-next/swift-proxy
+    charm: cs:~openstack-charmers/swift-proxy
     series: trusty
     num_units: 1
     options:
@@ -18,13 +18,13 @@ applications:
       source: cloud:trusty-mitaka
   keystone:
     expose: True
-    charm: cs:~openstack-charmers-next/keystone
+    charm: cs:~openstack-charmers/keystone
     num_units: 1
     options:
       openstack-origin: cloud:trusty-mitaka
   glance:
     expose: True
-    charm: cs:~openstack-charmers-next/glance
+    charm: cs:~openstack-charmers/glance
     num_units: 1
     options:
       openstack-origin: cloud:trusty-mitaka

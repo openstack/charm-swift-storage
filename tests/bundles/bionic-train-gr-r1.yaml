@@ -1,7 +1,7 @@
 series: bionic
 applications:
   swift-proxy-region1:
-    charm: cs:~openstack-charmers-next/swift-proxy
+    charm: cs:~openstack-charmers/swift-proxy
     num_units: 1
     options:
       region: RegionOne
@@ -38,7 +38,7 @@ applications:
       block-device: /etc/swift/storage.img|2G
       openstack-origin: cloud:bionic-train
   percona-cluster:
-    charm: cs:~openstack-charmers-next/percona-cluster
+    charm: cs:~openstack-charmers/percona-cluster
     num_units: 1
     options:
       dataset-size: 25%
@@ -46,13 +46,13 @@ applications:
       source: cloud:bionic-train
   keystone:
     expose: True
-    charm: cs:~openstack-charmers-next/keystone
+    charm: cs:~openstack-charmers/keystone
     num_units: 1
     options:
       openstack-origin: cloud:bionic-train
   glance:
     expose: True
-    charm: cs:~openstack-charmers-next/glance
+    charm: cs:~openstack-charmers/glance
     num_units: 1
     options:
       openstack-origin: cloud:bionic-train
