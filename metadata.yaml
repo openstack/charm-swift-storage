@@ -23,6 +23,7 @@ series:
 - focal
 - groovy
 - hirsute
+- impish
 extra-bindings:
   replication:
   cluster:
