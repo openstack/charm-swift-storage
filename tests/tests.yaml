@@ -1,7 +1,6 @@
 charm_name: swift-storage
 
 gate_bundles:
-  - groovy-victoria
   - focal-wallaby
   - focal-victoria
   - focal-ussuri
@@ -23,7 +22,9 @@ dev_bundles:
   - xenial-pike
   - xenial-queens
   - bionic-rocky
+  - focal-xena
   - hirsute-wallaby
+  - impish-xena
 
 tests:
   - zaza.openstack.charm_tests.swift.tests.SwiftImageCreateTest
@@ -33,4 +34,4 @@ tests:
 
 tests_options:
   force_deploy:
-    - hirsute-wallaby
+    - impish-xena

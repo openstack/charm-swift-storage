@@ -3,17 +3,20 @@
       - charm-unit-jobs
     check:
       jobs:
-      - hirsute-wallaby
-      - groovy-victoria
-      - focal-wallaby
-      - focal-victoria
-      - focal-ussuri
-      - bionic-ussuri
-      - bionic-train
-      - bionic-stein
-      - bionic-queens
-      - xenial-mitaka
-      - bionic-train-gr-swift
+        - impish-xena:
+            voting: false
+        - hirsute-wallaby
+        - focal-xena:
+            voting: false
+        - focal-wallaby
+        - focal-victoria
+        - focal-ussuri
+        - bionic-ussuri
+        - bionic-train
+        - bionic-stein
+        - bionic-queens
+        - xenial-mitaka
+        - bionic-train-gr-swift
 
 - job:
     name: bionic-train-gr-swift
