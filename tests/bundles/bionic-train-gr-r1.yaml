@@ -1,4 +1,5 @@
 series: bionic
+local_overlay_enabled: false
 applications:
   swift-proxy-region1:
     charm: cs:~openstack-charmers-next/swift-proxy
@@ -14,7 +15,7 @@ applications:
       write-affinity-node-count: '1'
       openstack-origin: cloud:bionic-train
   swift-storage-region1-zone1:
-    charm: swift-storage
+    charm: ../../.
     num_units: 1
     options:
       storage-region: 1
@@ -22,7 +23,7 @@ applications:
       block-device: /etc/swift/storage.img|2G
       openstack-origin: cloud:bionic-train
   swift-storage-region1-zone2:
-    charm: swift-storage
+    charm: ../../.
     num_units: 1
     options:
       storage-region: 1
@@ -30,7 +31,7 @@ applications:
       block-device: /etc/swift/storage.img|2G
       openstack-origin: cloud:bionic-train
   swift-storage-region1-zone3:
-    charm: swift-storage
+    charm: ../../.
     num_units: 1
     options:
       storage-region: 1
