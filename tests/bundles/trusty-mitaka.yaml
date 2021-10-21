@@ -9,7 +9,6 @@ applications:
       zone-assignment: manual
       replicas: 1
       swift-hash: fdfef9d4-8b06-11e2-8ac0-531c923c8fae
-    channel: candidate
   percona-cluster:
     charm:  cs:trusty/percona-cluster
     num_units: 1
@@ -23,14 +22,12 @@ applications:
     num_units: 1
     options:
       openstack-origin: cloud:trusty-mitaka
-    channel: candidate
   glance:
     expose: True
     charm: cs:~openstack-charmers/glance
     num_units: 1
     options:
       openstack-origin: cloud:trusty-mitaka
-    channel: candidate
   swift-storage:
     charm: swift-storage
     num_units: 1

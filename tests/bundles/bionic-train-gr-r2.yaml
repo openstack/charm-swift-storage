@@ -14,7 +14,6 @@ applications:
       write-affinity: "r1, r2"
       write-affinity-node-count: '1'
       openstack-origin: cloud:bionic-train
-    channel: candidate
   swift-storage-region2-zone1:
     charm: ../../.
     num_units: 1

@@ -14,7 +14,6 @@ applications:
       write-affinity: "r1, r2"
       write-affinity-node-count: '1'
       openstack-origin: cloud:bionic-train
-    channel: candidate
   swift-storage-region1-zone1:
     charm: ../../.
     num_units: 1
@@ -46,21 +45,18 @@ applications:
       dataset-size: 25%
       max-connections: 1000
       source: cloud:bionic-train
-    channel: candidate
   keystone:
     expose: True
     charm: cs:~openstack-charmers/keystone
     num_units: 1
     options:
       openstack-origin: cloud:bionic-train
-    channel: candidate
   glance:
     expose: True
     charm: cs:~openstack-charmers/glance
     num_units: 1
     options:
       openstack-origin: cloud:bionic-train
-    channel: candidate
 relations:
   - - swift-proxy-region1:swift-storage
     - swift-storage-region1-zone1:swift-storage
