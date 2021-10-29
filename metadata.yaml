@@ -18,7 +18,6 @@ tags:
 - openstack
 - file-servers
 series:
-- xenial
 - bionic
 - focal
 - groovy

@@ -1,30 +1,30 @@
 charm_name: swift-storage
 
 gate_bundles:
-  - focal-wallaby
-  - focal-victoria
-  - focal-ussuri
-  - bionic-ussuri
-  - bionic-train
-  - bionic-stein
   - bionic-queens
-  - xenial-mitaka
-  - bionic-train-gr:
-    - swift_gr_region1: bionic-train-gr-r1
-    - swift_gr_region2: bionic-train-gr-r2
+  - bionic-stein
+  - bionic-ussuri
+  - focal-ussuri
+  - focal-ussuri-gr:
+    - swift_gr_region1: focal-ussuri-gr-r1
+    - swift_gr_region2: focal-ussuri-gr-r2
+  - focal-victoria
+  - focal-wallaby
+  - focal-xena
+  - hirsute-wallaby
+  - impish-xena
 
 smoke_bundles:
   - focal-ussuri
 
 dev_bundles:
-  - trusty-mitaka
-  - xenial-ocata
-  - xenial-pike
-  - xenial-queens
   - bionic-rocky
-  - focal-xena
-  - hirsute-wallaby
-  - impish-xena
+  - bionic-train
+  - bionic-train-gr:
+    - swift_gr_region1: bionic-train-gr-r1
+    - swift_gr_region2: bionic-train-gr-r2
+  - focal-yoga
+  - jammy-yoga
 
 tests:
   - zaza.openstack.charm_tests.swift.tests.SwiftImageCreateTest
@@ -34,4 +34,6 @@ tests:
 
 tests_options:
   force_deploy:
+    - hirsute-wallaby
     - impish-xena
+    - jammy-yoga
