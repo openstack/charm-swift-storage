@@ -45,7 +45,7 @@ applications:
       openstack-origin: *openstack-origin
     to:
       - '3'
-    channel: latest/edge
+    channel: yoga/edge
 
   swift-proxy:
     charm: ch:swift-proxy
@@ -57,7 +57,7 @@ applications:
       openstack-origin: *openstack-origin
     to:
       - '4'
-    channel: latest/edge
+    channel: yoga/edge
 
   glance:
     expose: True
@@ -67,10 +67,10 @@ applications:
       openstack-origin: *openstack-origin
     to:
       - '5'
-    channel: latest/edge
+    channel: yoga/edge
 
   swift-storage:
-    charm: swift-storage
+    charm: ../../swift-storage.charm
     num_units: 1
     storage:
       block-devices: 'cinder,10G'

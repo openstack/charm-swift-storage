@@ -6,6 +6,7 @@ bin
 tags
 *.sw[nop]
 *.pyc
+*.charm
 tests/cirros-*
 func-results.json
 .settings

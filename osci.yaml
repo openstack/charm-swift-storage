@@ -4,3 +4,7 @@
       - charm-unit-jobs-py39
       - charm-yoga-functional-jobs
       - charm-xena-functional-jobs
+    vars:
+      needs_charm_build: true
+      charm_build_name: swift-storage
+      build_type: charmcraft
