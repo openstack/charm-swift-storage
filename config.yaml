@@ -1,6 +1,6 @@
 options:
   openstack-origin:
-    default: distro
+    default: cloud:focal-xena
     type: string
     description: |
       Repository from which to install.  May be one of the following:
@@ -13,7 +13,7 @@ options:
       cloud:<series>-<openstack-release>/updates
       cloud:<series>-<openstack-release>/staging
       cloud:<series>-<openstack-release>/proposed
-      
+
       NOTE: updating this setting to a source that is known to provide
       a later version of OpenStack will trigger a software upgrade unless
       the action-managed-upgrade configuration option is in play.
