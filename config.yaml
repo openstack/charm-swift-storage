@@ -1,6 +1,6 @@
 options:
   openstack-origin:
-    default: distro
+    default: yoga
     type: string
     description: |
       Repository from which to install.  May be one of the following:

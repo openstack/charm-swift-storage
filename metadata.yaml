@@ -19,7 +19,7 @@ tags:
 - file-servers
 series:
 - focal
-- impish
+- jammy
 extra-bindings:
   replication:
   cluster:
