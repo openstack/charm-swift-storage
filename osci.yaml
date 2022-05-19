@@ -1,27 +1,9 @@
 - project:
     templates:
-      - charm-unit-jobs
-    check:
-      jobs:
-        - impish-xena:
-            voting: false
-        - hirsute-wallaby
-        - focal-xena:
-            voting: false
-        - focal-wallaby
-        - focal-victoria
-        - focal-ussuri
-        - bionic-ussuri
-        - bionic-train
-        - bionic-stein
-        - bionic-queens
-        - xenial-mitaka
-        - bionic-train-gr-swift
-
-- job:
-    name: bionic-train-gr-swift
-    parent: func-target
-    dependencies:
-      - focal-ussuri
+      - charm-unit-jobs-py38
+      - charm-focal-ussuri-functional-jobs
+      - charm-victoria-functional-jobs
     vars:
-      tox_extra_args: swift_gr_region1:bionic-train-gr-r1 swift_gr_region2:bionic-train-gr-r2
+      needs_charm_build: true
+      charm_build_name: swift-storage
+      build_type: charmcraft

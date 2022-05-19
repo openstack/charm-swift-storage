@@ -10,3 +10,4 @@ tests/cirros-*
 func-results.json
 .settings
 **/__pycache__
+*.charm
