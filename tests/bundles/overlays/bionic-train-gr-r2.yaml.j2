@@ -1,10 +1,10 @@
 applications:
   swift-storage-region2-zone1:
-    charm: {{ charm_location }}
+    charm: {{ charm_location }}/{{ charm_name }}.charm
   swift-storage-region2-zone2:
-    charm: {{ charm_location }}
+    charm: {{ charm_location }}/{{ charm_name }}.charm
   swift-storage-region2-zone3:
-    charm: {{ charm_location }}
+    charm: {{ charm_location }}/{{ charm_name }}.charm
 relations:
 - - swift-proxy-region2:identity-service
   - keystone:identity-service
