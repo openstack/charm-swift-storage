@@ -18,8 +18,8 @@ tags:
 - openstack
 - file-servers
 series:
-- focal
 - jammy
+- kinetic
 extra-bindings:
   replication:
   cluster:
