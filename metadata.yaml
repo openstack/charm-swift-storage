@@ -18,12 +18,7 @@ tags:
 - openstack
 - file-servers
 series:
-- xenial
 - bionic
-- focal
-- groovy
-- hirsute
-- impish
 extra-bindings:
   replication:
   cluster:

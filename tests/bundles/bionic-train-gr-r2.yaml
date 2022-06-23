@@ -1,8 +1,8 @@
 series: bionic
-local_overlay_enabled: false
+local_overlay_enabled: False
 applications:
   swift-proxy-region2:
-    charm: cs:~openstack-charmers/swift-proxy
+    charm: ch:swift-proxy
     num_units: 1
     options:
       region: RegionTwo
@@ -14,6 +14,7 @@ applications:
       write-affinity: "r1, r2"
       write-affinity-node-count: '1'
       openstack-origin: cloud:bionic-train
+    channel: train/edge
   swift-storage-region2-zone1:
     charm: ../../.
     num_units: 1
