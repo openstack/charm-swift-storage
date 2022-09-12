@@ -265,3 +265,19 @@ options:
     default: 6012
     type: int
     description: Listening port of the swift-account-replicator server.
+  tune-watermark-scale-factor:
+    type: boolean
+    default: False
+    description: |
+      Whether to tune vm.watermark_scale_factor.
+      .
+      In some high memory pressure scenarios, a memory shortage may require
+      synchronous reclaim in order to allocate higher order pages.
+      Additionally in some cases the default vm.watermark_scale_factor sysctl value
+      yields a gap between min<->low<->high watermarks that is too small to
+      wake up kswapd (asynchronous reclaim) before synchronous reclaim is necessary.
+      This will fine-tune sysctl vm.watermark_scale_factor at runtime such that the
+      watermark gap is 1GB to wake kswapd earlier and alleviate issues arising
+      from this situation.
+      .
+      NOTE: Only affects baremetal hosts and kernels 4.15 and later.

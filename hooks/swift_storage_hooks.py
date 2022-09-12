@@ -23,6 +23,7 @@ import sys
 import socket
 import subprocess
 import tempfile
+import yaml
 
 from subprocess import CalledProcessError
 
@@ -75,6 +76,7 @@ from charmhelpers.core.hookenv import (
     ingress_address,
     DEBUG,
     WARNING,
+    ERROR,
 )
 
 from charmhelpers.fetch import (
@@ -92,6 +94,9 @@ from charmhelpers.core.host import (
 )
 
 from charmhelpers.core.sysctl import create as create_sysctl
+from charmhelpers.contrib.sysctl.watermark_scale_factor import (
+    calculate_watermark_scale_factor,
+)
 
 from charmhelpers.payload.execd import execd_preinstall
 
@@ -249,9 +254,25 @@ def config_changed():
     if relations_of_type('nrpe-external-master'):
         update_nrpe_config()
 
-    sysctl_dict = config('sysctl')
-    if sysctl_dict:
-        create_sysctl(sysctl_dict, '/etc/sysctl.d/50-swift-storage-charm.conf')
+    if config('sysctl'):
+        sysctl_dict_parsed = {}
+        sysctl_settings = config('sysctl')
+        try:
+            sysctl_dict_parsed = yaml.safe_load(sysctl_settings)
+        except yaml.YAMLError:
+            log("Error parsing YAML sysctl_dict: {}".format(sysctl_settings),
+                level=ERROR)
+        if (config('tune-watermark-scale-factor') is True and
+                "vm.watermark_scale_factor" not in sysctl_dict_parsed):
+            try:
+                wmark = calculate_watermark_scale_factor()
+                sysctl_dict_parsed["vm.watermark_scale_factor"] = wmark
+            except Exception:
+                pass
+
+        if sysctl_dict_parsed:
+            create_sysctl(sysctl_dict_parsed,
+                          '/etc/sysctl.d/50-swift-storage-charm.conf')
 
     add_to_updatedb_prunepath(STORAGE_MOUNT_PATH)
 
