@@ -1,15 +1,15 @@
 charm_name: swift-storage
 
 gate_bundles:
-  - focal-xena
-  - impish-xena
+  - jammy-yoga
 
 smoke_bundles:
-  - focal-xena
+  - jammy-yoga
 
 dev_bundles:
-  - focal-yoga
   - jammy-yoga
+  - jammy-zed
+  - kinetic-zed
 
 tests:
   - zaza.openstack.charm_tests.swift.tests.SwiftImageCreateTest
@@ -19,5 +19,4 @@ tests:
 
 tests_options:
   force_deploy:
-    - impish-xena
-    - jammy-yoga
+    - kinetic-zed
