@@ -1,4 +1,4 @@
-repo: https://github.com/juju/charm-helpers
+repo: https://github.com/juju/charm-helpers@stable/zed
 destination: charmhelpers
 include:
     - core
@@ -6,6 +6,7 @@ include:
     - cli
     - contrib.openstack|inc=*
     - contrib.storage
+    - contrib.sysctl
     - fetch
     - contrib.hardware.pci
     - contrib.hahelpers:
