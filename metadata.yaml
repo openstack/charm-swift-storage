@@ -14,6 +14,7 @@ description: |
   .
   This charm deploys the Swift storage service, supporting HTTP based access
   via Swift proxy services.
+docs: https://discourse.charmhub.io/t/swift-storage-docs-index/11104
 tags:
 - openstack
 - file-servers
