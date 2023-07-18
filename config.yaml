@@ -1,6 +1,6 @@
 options:
   openstack-origin:
-    default: antelope
+    default: bobcat
     type: string
     description: |
       Repository from which to install.  May be one of the following:

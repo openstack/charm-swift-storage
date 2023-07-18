@@ -20,8 +20,8 @@ tags:
 - file-servers
 series:
 - jammy
-- kinetic
 - lunar
+- mantic
 extra-bindings:
   replication:
   cluster:
