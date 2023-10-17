@@ -20,7 +20,6 @@ tags:
 - file-servers
 series:
 - jammy
-- lunar
 - mantic
 extra-bindings:
   replication:
