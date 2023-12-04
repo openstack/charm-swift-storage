@@ -40,24 +40,6 @@ STATUS_CRIT = 2
 STATUS_UNKNOWN = 3
 
 
-class NewDate(datetime.datetime):
-    @classmethod
-    def now(cls):
-        """
-        Mock for builtin datetime.datetime.now(), to test repl_last_timestamp()
-        Non-defined methods are inherited from real class
-        """
-        return cls(2017, 4, 27,
-                   13, 25, 46, 629282)
-
-    @classmethod
-    def fromtimestamp(cls, timestamp):
-        return cls.utcfromtimestamp(timestamp)
-
-
-datetime.datetime = NewDate
-
-
 class CheckSwiftStorageTestCase(unittest.TestCase):
     def test_generate_md5(self):
         """
@@ -398,12 +380,20 @@ class CheckSwiftStorageTestCase(unittest.TestCase):
             result = check_replication(base_url, [4, 10, 4, 10])
             self.assertEqual(result, [(STATUS_OK, 'OK')])
 
-    def test_repl_last_timestamp(self):
+    @patch('check_swift_storage.datetime')
+    def test_repl_last_timestamp(self, mock_datetime):
         """
         Calculates delta between NOW and last replication date
         Also gathers the number of failures
         """
         # 1493299546.629282
+        mock_datetime.datetime.now.return_value = (
+            datetime.datetime(2017, 4, 27, 13, 25, 46, 629282)
+        )
+        mock_datetime.datetime.fromtimestamp.side_effect = (
+            datetime.datetime.utcfromtimestamp
+        )
+
         jdata = {u'replication_last': 1493299546.629282, u'replication_stats':
                  {u'no_change': 0, u'rsync': 0, u'success': 0, u'start':
                   1493299546.621624, u'attempted': 0, u'ts_repl': 0, u'remove':
