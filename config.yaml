@@ -1,6 +1,6 @@
 options:
   openstack-origin:
-    default: bobcat
+    default: caracal
     type: string
     description: |
       Repository from which to install.  May be one of the following:

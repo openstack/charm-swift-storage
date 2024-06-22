@@ -1,11 +1,9 @@
 charm_name: swift-storage
 
 gate_bundles:
-  - jammy-antelope
-  - jammy-bobcat
-  - jammy-caracal
+  - noble-caracal
 smoke_bundles:
-  - jammy-caracal
+  - noble-caracal
 dev_bundles:
   - noble-caracal
 tests:
@@ -14,6 +12,3 @@ tests:
   - swift_gr_region1:
       - zaza.openstack.charm_tests.swift.tests.SwiftGlobalReplicationTests
 
-tests_options:
-  force_deploy:
-    - noble-caracal
