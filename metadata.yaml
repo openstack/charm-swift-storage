@@ -16,10 +16,11 @@ description: |
   via Swift proxy services.
 docs: https://discourse.charmhub.io/t/swift-storage-docs-index/11104
 tags:
-  - openstack
-  - file-servers
+- openstack
+- file-servers
 series:
-  - jammy
+- jammy
+- noble
 extra-bindings:
   replication:
   cluster:
