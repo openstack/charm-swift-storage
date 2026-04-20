@@ -90,7 +90,7 @@ class SwiftStorageContextTests(CharmTestCase):
             'object_rsync_timeout': 1000,
             'object_lockup_timeout': 2010,
         }
-        self.assertDictContainsSubset(ex, result)
+        self.assertEqual(result, result | ex)
 
     def test_swift_storage_server_context(self):
         self.unit_private_ip.return_value = '10.0.0.5'

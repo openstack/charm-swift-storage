@@ -99,7 +99,7 @@ class PauseTestCase(CharmTestCase):
                 return True
 
         self.service_pause.side_effect = maybe_kill
-        self.assertRaisesRegexp(
+        self.assertRaisesRegex(
             Exception, "swift-container didn't stop cleanly.",
             actions.actions.pause, self.args)
         self.assertEqual(pause_calls, ['swift-account',
@@ -174,7 +174,7 @@ class ResumeTestCase(CharmTestCase):
                 return True
 
         self.service_resume.side_effect = maybe_kill
-        self.assertRaisesRegexp(
+        self.assertRaisesRegex(
             Exception, "swift-container didn't start cleanly.",
             actions.actions.resume, self.args)
         self.assertEqual(resume_calls, ['swift-account',
